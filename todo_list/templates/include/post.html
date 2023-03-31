@@ -1,0 +1,37 @@
+<div class="max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md" style='width: 52rem'>
+    <div class="flex justify-between items-center">
+        <span class="font-light text-gray-600">{{ post.date|date:"F j, Y, g:i:a" }}</span>
+    </div>
+   
+    <div class="mt-2">
+        <p class="mt-2 text-gray-600 font-bold">{{ post.title }}</p>
+        <p class="mt-2 text-gray-600">{{ post.text }}</p>
+
+    </div>
+    <div class="flex justify-between items-center mt-4">
+        {% if show_detail_link %}
+        <a class="text-blue-600 hover:underline" href="{% url 'todo_app:detail' post.id %}">
+            {# TODO Add a detail url #}
+            Read more
+        </a>
+        {% else %}
+        <span>&nbsp;</span>
+        {%endif%} 
+        <div>
+            {# TODO: User needs a link to their bio and a photo and a thumbnail and a name #}
+           {% comment  %}
+           <a class="flex items-center" href="{% url 'profiles:detail' post.author.username%}">
+               {% thumbnail post.author.profile.image "100x100" crop="center" as im %}
+               <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src="{{im.url}}" alt="avatar">
+               {% endthumbnail %}
+               
+               <h1 class="text-gray-700 font-bold">{{post.author.username}}</h1>
+           </a>
+           {% endcomment %}
+        </div>
+    </div>
+    <div class='text-blue'>
+        <a href='{%url 'todo_app:delete' post.id%}'>Delete</a>
+        <a href='{%url 'todo_app:update' post.id%}'>Update</a>
+    </div>
+</div>

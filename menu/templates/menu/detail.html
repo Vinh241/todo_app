@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}{{post.text}}{% endblock  %}
+{%block body%}
+{%include 'include/post.html' with post=post  %}
+{%endblock%}

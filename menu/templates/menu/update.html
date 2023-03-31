@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+{% block body %}
+    <form method='POST' action=''>
+    {% csrf_token %}
+    {{ form|crispy }}   
+    <button class='p-5 bg-slate-600' type='submit'>Update</button>
+    </form>
+{% endblock body %}
+
